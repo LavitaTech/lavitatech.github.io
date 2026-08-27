@@ -152,9 +152,9 @@ a {
 .hero-grid {
   min-height: 610px;
   display: grid;
-  grid-template-columns: minmax(0, 1.02fr) minmax(420px, 0.98fr);
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
   align-items: center;
-  gap: 64px;
+  gap: clamp(36px, 5vw, 64px);
 }
 
 .eyebrow {
@@ -247,9 +247,11 @@ h3 {
 }
 
 .hero-art {
-  display: grid;
-  place-items: center;
-  min-height: 520px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 0;
 }
 
 .products {
@@ -516,10 +518,7 @@ h3 {
     min-height: auto;
     gap: 30px;
   }
-  
-  .hero-art {
-    min-height: 340px;
-  }
+
 
   .section-heading {
     gap: 20px;
@@ -596,9 +595,6 @@ h3 {
     font-size: clamp(2.8rem, 14vw, 4.6rem);
   }
 
-  .hero-art {
-    min-height: 300px;
-  }
 
   .product-scroller {
     grid-auto-columns: minmax(84vw, 84vw);
@@ -639,13 +635,15 @@ h3 {
     animation-iteration-count: 1 !important;
   }
 }
+
+
 /* ---------- Hero artwork frame ---------- */
 
 .hero-frame {
   position: relative;
-  width: min(100%, 590px);
-  aspect-ratio: 5 / 6;
-  padding: 16px;
+  width: 100%;
+  max-width: 640px;
+  padding: clamp(10px, 1.4vw, 16px);
   overflow: hidden;
   border: 1px solid rgba(47, 128, 237, 0.18);
   border-radius: 38px;
@@ -660,6 +658,8 @@ h3 {
   content: "";
   position: absolute;
   inset: 0;
+  z-index: 2;
+  border-radius: inherit;
   pointer-events: none;
   background: linear-gradient(
     145deg,
@@ -672,16 +672,8 @@ h3 {
   position: relative;
   z-index: 1;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
+  height: auto;
   border-radius: 26px;
-}
-
-/* The image now lives inside .hero-frame, so let the frame control sizing. */
-.hero-art > img {
-  width: auto;
-  max-height: none;
 }
 
 /* ---------- Contact page ---------- */
@@ -848,8 +840,13 @@ h3 {
 }
 
 @media (max-width: 960px) {
+  .hero-art {
+    justify-content: center;
+  }
+
   .hero-frame {
-    width: min(100%, 520px);
+    width: 100%;
+    max-width: 620px;
   }
 
   .contact-page-grid {
@@ -864,12 +861,15 @@ h3 {
 
 @media (max-width: 720px) {
   .hero-frame {
-    aspect-ratio: 4 / 5;
+    width: 100%;
+    max-width: none;
     padding: 10px;
     border-radius: 28px;
   }
-
+  
   .hero-frame img {
+    width: 100%;
+    height: auto;
     border-radius: 20px;
   }
 
