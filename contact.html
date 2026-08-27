@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Contact LavitaTech for partnerships, product questions, support, and business inquiries.">
+  <title>Contact Us | LavitaTech</title>
+
+  <link rel="canonical" href="https://lavitatech.com/contact.html">
+  <link rel="icon" href="./horizontal%20logo%20transparent.png">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./script.js" defer></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="/" data-home-link aria-label="LavitaTech home">
+        <img
+          src="./horizontal%20logo%20transparent.png"
+          alt="LavitaTech"
+          class="brand-logo"
+          width="260"
+          height="72"
+        >
+      </a>
+
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+        aria-label="Open navigation"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav id="primary-nav" class="primary-nav" aria-label="Primary navigation">
+        <a href="/" data-home-link>Home</a>
+        <a href="/#about">About Us</a>
+        <a href="./contact.html" aria-current="page">Contact Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="contact-page-main">
+    <section class="contact-hero section">
+      <div class="container contact-page-grid">
+        <div class="contact-intro">
+          <p class="eyebrow">Contact LavitaTech</p>
+          <h1>Let’s start a conversation.</h1>
+          <p class="contact-intro-text">
+            Have a product question, partnership opportunity, support request, or business inquiry?
+            Send us a message and the LavitaTech team will review it.
+          </p>
+          <a class="contact-email" href="mailto:support@lavitatech.com">support@lavitatech.com</a>
+        </div>
+
+        <div class="contact-form-shell">
+          <form
+            class="contact-form"
+            action="https://formsubmit.co/support@lavitatech.com"
+            method="POST"
+          >
+            <input type="hidden" name="_subject" value="New LavitaTech Website Inquiry">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://lavitatech.com/thanks.html">
+
+            <div class="honeypot-field" aria-hidden="true">
+              <label for="company-website">Leave this field empty</label>
+              <input id="company-website" type="text" name="_honey" tabindex="-1" autocomplete="off">
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" autocomplete="name" required>
+              </div>
+
+              <div class="form-field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" required>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="inquiry-type">What can we help with?</label>
+              <select id="inquiry-type" name="inquiry_type" required>
+                <option value="" selected disabled>Select an inquiry type</option>
+                <option value="Product question">Product question</option>
+                <option value="Partnership">Partnership</option>
+                <option value="Business inquiry">Business inquiry</option>
+                <option value="Support">Support</option>
+                <option value="Press or media">Press or media</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="subject">Subject</label>
+              <input id="subject" name="subject" type="text" required>
+            </div>
+
+            <div class="form-field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+
+            <button class="button button-primary contact-submit" type="submit">Send message</button>
+            <p class="form-note">Please do not include passwords, payment details, or other sensitive information.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <a class="footer-brand" href="/" data-home-link aria-label="LavitaTech home">
+        <img
+          src="./horizontal%20logo%20transparent.png"
+          alt="LavitaTech"
+          width="190"
+          height="54"
+        >
+      </a>
+
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="/" data-home-link>Home</a>
+        <a href="/#about">About Us</a>
+        <a href="./contact.html">Contact Us</a>
+      </nav>
+
+      <p class="copyright">© 2025 LavitaTech, LLC. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
