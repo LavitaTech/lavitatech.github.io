@@ -47,3 +47,60 @@ if (sessionStorage.getItem(forceTopKey) === "true") {
     window.scrollTo(0, 0);
   });
 }
+
+// Analytics event helpers.
+const sendAnalyticsEvent = (eventName, parameters = {}) => {
+  if (typeof window.gtag !== "function") {
+    return;
+  }
+
+  window.gtag("event", eventName, parameters);
+};
+
+// Track App Store button selections by product.
+document.querySelectorAll("[data-app-store-link]").forEach((link) => {
+  link.addEventListener("click", () => {
+    sendAnalyticsEvent("app_store_click", {
+      app_name: link.dataset.appName || "Unknown",
+      link_url: link.href,
+    });
+  });
+});
+
+// Remember valid contact form submissions for the thank-you page.
+const contactForm = document.querySelector("[data-contact-form]");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", () => {
+    try {
+      sessionStorage.setItem(
+        "lavitatech-contact-submitted",
+        "true"
+      );
+    } catch {
+      // Submission continues normally when storage is unavailable.
+    }
+  });
+}
+
+// Count a completed contact inquiry as a lead.
+if (window.location.pathname.endsWith("/thanks.html")) {
+  try {
+    const submitted =
+      sessionStorage.getItem(
+        "lavitatech-contact-submitted"
+      ) === "true";
+
+    if (submitted) {
+      sessionStorage.removeItem(
+        "lavitatech-contact-submitted"
+      );
+
+      sendAnalyticsEvent("generate_lead", {
+        lead_source: "LavitaTech website contact form",
+      });
+    }
+  } catch {
+    // No analytics event is sent when storage is unavailable.
+  }
+}
