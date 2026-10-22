@@ -67,6 +67,18 @@ document.querySelectorAll("[data-app-store-link]").forEach((link) => {
   });
 });
 
+
+// Track visits to product websites.
+document.querySelectorAll("[data-website-link]").forEach((link) => {
+  link.addEventListener("click", () => {
+    sendAnalyticsEvent("product_website_click", {
+      product_name: link.dataset.productName || "Unknown",
+      link_url: link.href,
+    });
+  });
+});
+
+
 // Remember valid contact form submissions for the thank-you page.
 const contactForm = document.querySelector("[data-contact-form]");
 
